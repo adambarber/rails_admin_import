@@ -41,7 +41,7 @@
     .form-group.control-group
       %label.col-sm-2.control-label{for: "update_lookup_query"}= t("admin.import.update_lookup_query")
       .col-sm-10.controls
-        = text_field_tag 'update_lookup_query'
+        = text_field_tag 'update_lookup_query', class: 'form-control'
 
   - unless @import_model.association_fields.empty?
     %fieldset

@@ -176,7 +176,7 @@ module RailsAdminImport
         field_names.include?(field_name) && !value.blank?
       end
 
-      query = params[:update_lookup_query] ? params[:update_lookup_query] : {update => record[update]}
+      query = params[:update_lookup_query] ? eval(params[:update_lookup_query]) : {update => record[update]}
       model = import_model.model
       object = if update.present?
                  model.where(query).first
