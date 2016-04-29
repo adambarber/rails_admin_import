@@ -92,6 +92,7 @@ module RailsAdminImport
     end
 
     def update_lookup
+      puts "Update: #{params[:update_lookup].to_sym} \n\n"
       @update_lookup ||= if params[:update_if_exists] == "1"
                            params[:update_lookup].to_sym
                          end
