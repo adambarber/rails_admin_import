@@ -176,7 +176,7 @@ module RailsAdminImport
       end
 
       model = import_model.model
-      query_args = record.values_at(model.bulk_update_query_args)
+      query_args = record.values_at(*model.bulk_update_query_args)
       object = if update.present?
                  model.bulk_update_query(*query_args).first
                end
