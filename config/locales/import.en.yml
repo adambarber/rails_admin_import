@@ -21,6 +21,7 @@ en:
       invalid_json: "The JSON data should be an array of records or an object with a key '%{root_key}' set to an array of records"
       update_if_exists: "Update if exists"
       update_lookup: "Update lookup field"
+      update_lookup_query: "Update lookup query"
       mapping: "mapping"
       encoding: "Encoding"
       legend:
