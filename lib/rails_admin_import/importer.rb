@@ -92,7 +92,6 @@ module RailsAdminImport
     end
 
     def update_lookup
-      puts "Update: #{params[:update_lookup].to_sym} \n\n"
       @update_lookup ||= if params[:update_if_exists] == "1"
                            params[:update_lookup].to_sym
                          end
@@ -176,10 +175,10 @@ module RailsAdminImport
         field_names.include?(field_name) && !value.blank?
       end
 
-      query = params[:update_lookup_query] ? eval(params[:update_lookup_query]) : {update => record[update]}
       model = import_model.model
+      query_args = record.values_at(model.bulk_update_query_args)
       object = if update.present?
-                 model.where(query).first
+                 model.bulk_update_query(*query_args).first
                end
 
       if object.nil?
